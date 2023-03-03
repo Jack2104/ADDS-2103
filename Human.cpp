@@ -18,6 +18,6 @@ char Human::makeMove() {
 }
 
 std::string Human::getName() {
-    std::cout << this->name << std::endl;
+    return this->name;
 }
 
