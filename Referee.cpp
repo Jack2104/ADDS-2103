@@ -2,7 +2,7 @@
 
 Referee::Referee() {};
 
-Player* Referee::Referee(Player* player1, Player* player2) {
+Player* Referee::refGame (Player* player1, Player* player2) {
     char p1_move = player1->getMove();
     char p2_move = player2->getMove();
 
