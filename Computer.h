@@ -6,7 +6,8 @@ class Computer {
         
 
     public:
-
+        char makeMove();
+        std::string getName();
 }
 
 #endif
