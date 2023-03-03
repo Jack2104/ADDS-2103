@@ -3,6 +3,7 @@
 #include "Human.h"
 #include "Referee.h"
 
+#include <iostream>
 #include <string>
 
 int main() {
@@ -15,4 +16,4 @@ int main() {
     std::cout << winner->getName() << std::endl;
 
     return 0;
-}
+};
