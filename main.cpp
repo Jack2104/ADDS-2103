@@ -3,6 +3,8 @@
 #include "Human.h"
 #include "Referee.h"
 
+#include <string>
+
 int main() {
     Player* p1 = new Human("Mie");
     Player* p2 = new Computer();
