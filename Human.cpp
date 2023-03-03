@@ -4,7 +4,9 @@ Human::Human() {
     this->name = "Human";
 }
 
-Human::Human(name) : name(name) {};
+Human::Human(std::string name){
+    this->name = name;
+};
 
 char Human::makeMove() {
     char move;
