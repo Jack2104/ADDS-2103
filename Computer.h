@@ -4,9 +4,6 @@
 #include "Player.h"
 
 class Computer : public Player {
-    private:
-        
-
     public:
         char makeMove();
         std::string getName();

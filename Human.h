@@ -4,13 +4,12 @@
 #include "Player.h"
 
 class Human : public Player {
-    private:
+    public:
         Human();
         Human(name);
 
         std::string name;
 
-    public:
         char makeMove();
         std::string getName();
 }
