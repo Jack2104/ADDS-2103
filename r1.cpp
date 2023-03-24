@@ -9,7 +9,7 @@ int sum_of_squares(int n) {
 }
 
 int main() {
-    std::cout << sum_of_squares(3) << std::endl;
+    std::cout << sum_of_squares(2) << std::endl;
 
     return 0;
 }

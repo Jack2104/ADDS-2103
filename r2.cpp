@@ -1,10 +1,12 @@
 #include <iostream>
-#include <string>
 
 void stars(int n) {
     if (n == 0) {
-        return "\n";
+        std::cout << '\n';
+        return;
     }
 
-    return "*" + stars(n-1);
+    std::cout << '*';
+    stars(n-1);
+    return;
 }
