@@ -1,15 +1,15 @@
 #include <iostream>
 
-int sumSquares(int n) {
+int sum_of_squares(int n) {
     if (n == 1) {
         return 1;
     }
 
-    return n*n + sumSquares(n-1);
+    return n*n + sum_of_squares(n-1);
 }
 
 int main() {
-    std::cout << sumSquares(3) << std::endl;
+    std::cout << sum_of_squares(3) << std::endl;
 
     return 0;
 }
