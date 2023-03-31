@@ -1,5 +1,7 @@
 #include "Finder.h"
 
+#include <iostream>
+
 using namespace std;
 
 vector<int> Finder::findSubstrings(string s1, string s2) {
@@ -11,9 +13,10 @@ vector<int> Finder::findSubstrings(string s1, string s2) {
         if (found != string::npos) {
             result.push_back(found);
         } else {
-            result.push_back(-1);
+            result.insert(result.end(), s2.size() - i + 1, -1);
+            return result;
         }
     }
-    
+
     return result;
 }
