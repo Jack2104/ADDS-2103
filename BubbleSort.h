@@ -1,12 +1,11 @@
 #ifndef BUBBLE_SORT_H
 #define BUBBLE_SORT_H
 
-class BubbleSort {
+#include "Sort.h"
+
+class BubbleSort : public Sort {
     public:
-
-
-    private:
-
+        std::vector<int> sort(std::vector<int> list);
 };
 
 #endif
