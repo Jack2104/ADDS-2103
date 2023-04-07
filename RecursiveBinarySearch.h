@@ -3,7 +3,10 @@
 
 class RecursiveBinarySearch {
     public:
-
+        bool search(std::vector<int> list, int value);
+    
+    private:
+        int rbSearch(std::vector<int> list, int value, int start, int end)
 };
 
 #endif
