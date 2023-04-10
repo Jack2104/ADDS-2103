@@ -1,7 +1,5 @@
 #include "QuickSort.h"
 
-#include <iostream>
-
 void QuickSort::qsort(std::vector<int> &list, int start, int end) {
     if (start >= end) {
         return;

@@ -1,7 +1,5 @@
 #include "RecursiveBinarySearch.h"
 
-#include <cmath>
-
 bool RecursiveBinarySearch::rbSearch(std::vector<int> list, int value, int start, int end) {
     if (start > end) {
         return false;
@@ -20,9 +18,5 @@ bool RecursiveBinarySearch::rbSearch(std::vector<int> list, int value, int start
 }
 
 bool RecursiveBinarySearch::search(std::vector<int> list, int value) {
-    // int result = rbSearch(list, value, 0, list.size() - 1);
-
-    // return result ? true : false;
-
     return rbSearch(list, value, 0, list.size() - 1);
 }
