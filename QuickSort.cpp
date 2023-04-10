@@ -8,18 +8,10 @@ void QuickSort::qsort(std::vector<int> &list, int start, int end) {
     }
 
     // Select a pivot
-    // int pivot_location = end - start >= 2 ? start + 2 : end;
-    int pivot_location = end;
+    int pivot_location = end - start >= 2 ? start + 2 : end;
     int pivot = list[pivot_location];
 
-    // std::cout << "BEFORE: ";
-
-    // for (int i = start; i < end + 1; i++) {
-    //     std::cout << list[i] << " ";
-    // }
-
-    // std::cout << std::endl;
-
+    // Sort the LHS of the array
     int pivot_index = start;
     int temp;
 
@@ -33,17 +25,35 @@ void QuickSort::qsort(std::vector<int> &list, int start, int end) {
         }
     }
 
+    // Swap the element at pivot_index and the pivot
     temp = list[pivot_index];
     list[pivot_index] = pivot;
     list[pivot_location] = temp;
 
-    // std::cout << ", AFTER: ";
+    // Sort the RHS of the array - must be done if the pivot isn't at the end of the array
+    if (pivot_location < end) {
+        pivot_location = pivot_index; // The pivot will always move to be at pivot_index
+        pivot = list[pivot_location]; // Note: the pivot itself won't actually change
 
-    // for (int i = start; i < end + 1; i++) {
-    //     std::cout << list[i] << " ";
-    // }
+        pivot_index = end;
 
-    // std::cout << std::endl;
+        // Loop down from the end of the array to the pivot
+        for (int i = end; i > pivot_location; i--) {
+            // We only want elements *larger* than the pivot on the RHS
+            if (list[i] > pivot) {
+                temp = list[i];
+                list[i] = list[pivot_index];
+                list[pivot_index] = temp;
+
+                pivot_index--;
+            }
+        }
+
+        // Swap the element at pivot_index and the pivot
+        temp = list[pivot_index];
+        list[pivot_index] = pivot;
+        list[pivot_location] = temp;
+    }
 
     qsort(list, start, pivot_index - 1);
     qsort(list, pivot_index + 1, end);
@@ -53,28 +63,3 @@ std::vector<int> QuickSort::sort(std::vector<int> list) {
     qsort(list, 0, list.size() - 1);
     return list;
 }
-
-// int QuickSort::partition(std::vector<int> &list, int start, int end) {
-//     int pivot_location = end - start >= 2 ? start + 2 : end;
-//     int pivot = list[pivot_location];
-
-//     // Sorting left and right parts of the pivot element
-//     int i = start, j = end;
- 
-//     while (i < pivot_location && j > pivot_location) {
- 
-//         while (list[i] <= pivot) {
-//             i++;
-//         }
- 
-//         while (list[j] > pivot) {
-//             j--;
-//         }
- 
-//         if (i < pivot_location && j > pivot_location) {
-//             std::swap(list[i++], list[j--]);
-//         }
-//     }
- 
-//     return pivot_location;
-// }
