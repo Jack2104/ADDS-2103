@@ -2,17 +2,27 @@
 
 #include <cmath>
 
-int RecursiveBinarySearch::rbSearch(std::vector<int> list, int value, int start, int end) {
-    if (list[end] == value) {
-        return end;
-    } else if (list[end] > value && list[start] < value)
+bool RecursiveBinarySearch::rbSearch(std::vector<int> list, int value, int start, int end) {
+    if (start > end) {
+        return false;
+    }
 
-    rbSearch(list, value, start, std::floor(end / 2));
-    rbSearch(list, value, std::ceil(end / 2), end);
+    int midpoint = (start + end) / 2;
+
+    if (list[midpoint] == value)
+        return true;
+    else if (list[midpoint] > value)
+        return rbSearch(list, value, start, midpoint - 1);
+    else if (list[midpoint] < value)
+        return rbSearch(list, value, midpoint + 1, end);
+    
+    return false;
 }
 
 bool RecursiveBinarySearch::search(std::vector<int> list, int value) {
-    int result = rbSearch(list, value, 0, list.size() - 1);
+    // int result = rbSearch(list, value, 0, list.size() - 1);
 
-    return result ? true : false;
+    // return result ? true : false;
+
+    return rbSearch(list, value, 0, list.size() - 1);
 }
