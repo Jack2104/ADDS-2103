@@ -9,6 +9,7 @@ class QuickSort : public Sort {
     
     private:
         void qsort(std::vector<int> &list, int start, int end);
+        // int partition(std::vector<int> &list, int start, int end);
 };
 
 #endif
