@@ -1,13 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <limits>
+#include <list>
+#include <string>
 
 #include "Node.h"
 #include "LinkedList.h"
+#include "BigNumCalc.h"
 
 using namespace std;
 
-
+/*
 
 vector<int> split_to_ints(string input,string valid) {
     size_t startPos = 0;
@@ -99,7 +102,7 @@ int main(void) {
     return 0;
 }
 
-
+*/
 
 /*
 int main() {
@@ -144,3 +147,20 @@ int main() {
     list4.printList();
 }
 */
+
+int main() {
+    BigNumCalc bigNumCalc;
+
+    std::list<int> num1 = bigNumCalc.buildBigNum("256");
+    std::list<int> num2 = bigNumCalc.buildBigNum("9");
+    
+    std::list<int> num = bigNumCalc.mul(num1, num2);
+
+    for (auto i : num) {
+        std::cout << i << " ";
+    }
+
+    std::cout << std::endl;
+
+    return 0;
+}
