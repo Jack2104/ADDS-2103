@@ -27,7 +27,7 @@ std::list<int> BigNumCalc::add(std::list<int> num1, std::list<int> num2) {
 
     for (auto it1 = num1.rbegin(), it2 = num2.rbegin(); it1 != num1.rend(); ++it1, ++it2) {
         int sum = *it1 + *it2 + carry;
-        carry = sum >= 10 ? 1 : 0;
+        carry = sum / 10; // Will never be > 2 as sum is at max 18 (9+9). Will round down to fit in int (if decimal)
 
         result.push_front(sum % 10);
     }
@@ -72,8 +72,7 @@ std::list<int> BigNumCalc::mul(std::list<int> num1, std::list<int> num2) {
 
     for (auto it = num1.rbegin(); it != num1.rend(); ++it) {
         int product = *it * num2.front() + carry;
-        // carry = product >= 10 ? 1 : 0;
-        carry = product / 10;
+        carry = product / 10; // Will round down to fit in int (if decimal)
         result.push_front(product % 10);
     }
 

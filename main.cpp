@@ -151,10 +151,10 @@ int main() {
 int main() {
     BigNumCalc bigNumCalc;
 
-    std::list<int> num1 = bigNumCalc.buildBigNum("256");
-    std::list<int> num2 = bigNumCalc.buildBigNum("9");
+    std::list<int> num1 = bigNumCalc.buildBigNum("1234");
+    std::list<int> num2 = bigNumCalc.buildBigNum("123450");
     
-    std::list<int> num = bigNumCalc.mul(num1, num2);
+    std::list<int> num = bigNumCalc.add(num1, num2);
 
     for (auto i : num) {
         std::cout << i << " ";
