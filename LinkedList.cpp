@@ -35,7 +35,7 @@ void LinkedList::printList() {
 /////////// your code goes here... DO NOT change the function signatures ///////////
 
 bool LinkedList::swap(int pos1, int pos2) {
-	
+	return true;
 }
 
 bool LinkedList::find_and_delete(int target) {
@@ -50,15 +50,20 @@ bool LinkedList::find_and_delete(int target) {
 
 	while (current_node != nullptr) {
 		if (current_node->data == target) {
-			prev_node->link = next_node;
+			// Will throw error when deleting current_node if current_node = head
+			if (current_node != head)
+				prev_node->link = next_node;
+			else
+				head = next_node; // If deleting from head, set head (not prev_node->link) to next_node
+
 			delete current_node;
 
-			return false;
+			return true;
 		}
 
 		prev_node = current_node;
 		current_node = current_node->link;
-		next_node = current_node->link;
+		next_node = current_node != nullptr ? current_node->link : nullptr;
 	}
 
 	return false;
