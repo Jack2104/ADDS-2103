@@ -35,6 +35,42 @@ void LinkedList::printList() {
 /////////// your code goes here... DO NOT change the function signatures ///////////
 
 bool LinkedList::swap(int pos1, int pos2) {
+	// Traverse to pos1
+	int curr_pos1 = 0;
+	Node* curr_node1 = head;
+	Node* prev_node1 = head;
+
+	while (curr_pos1 < pos1 && curr_node1 != nullptr) {
+		curr_pos1++;
+		prev_node1 = curr_node1;
+		curr_node1 = curr_node1->link;
+	}
+
+	// Traverse to pos2
+	int curr_pos2 = 0;
+	Node* curr_node2 = head;
+	Node* prev_node2 = head;
+
+	while (curr_pos2 < pos2 && curr_node2 != nullptr) {
+		curr_pos2++;
+		prev_node2 = curr_node2;
+		curr_node2 = curr_node2->link;
+	}
+
+	// Return false if pos1 or pos2 are out of bounds
+	if (curr_node1 == nullptr || curr_node2 == nullptr) {
+		return false;
+	}
+
+	// Set pos1 to point to pos2->link and vice versa
+	Node* temp_node2_link = curr_node2->link;
+	curr_node2->link = curr_node1->link;
+	curr_node1->link = temp_node2_link;
+
+	// Set pos1 prev to point to pos2 and vice versa
+	prev_node2->link = curr_node1;
+	prev_node1->link = curr_node2;
+
 	return true;
 }
 
