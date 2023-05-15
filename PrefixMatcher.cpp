@@ -1,7 +1,5 @@
 #include "PrefixMatcher.h"
 
-#include <iostream>
-
 PrefixMatcher::PrefixMatcher() {
     root = new Node();
     (root->children).assign(2, nullptr);

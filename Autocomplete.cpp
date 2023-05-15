@@ -1,7 +1,5 @@
 #include "Autocomplete.h"
 
-#include <iostream>
-
 Autocomplete::Autocomplete() {
     root = new Node();
     (root->children).assign(26, nullptr);
