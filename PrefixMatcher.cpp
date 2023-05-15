@@ -9,44 +9,55 @@ PrefixMatcher::PrefixMatcher() {
 
 int PrefixMatcher::selectRouter(std::string networkAddress) {
     Node* currentNode = this->root;
+    std::string lastMatchedAddress = "";
+    std::vector<std::string> matches;
 
-    for (int i = 0; i < networkAddress.length(); i++) {
-        int pos = networkAddress[i] == '0' ? 0 : 1; // Gets the position of c in the alphabet (https://www.geeksforgeeks.org/find-letters-position-in-alphabet-using-bit-operation/)
+
+    // for (int i = 0; i < networkAddress.length(); i++) {
+    //     int pos = networkAddress[i] == '0' ? 0 : 1;
+
+    //     lastMatchedAddress += getNumberFromPos(pos);
+
+    //     if (currentNode->routerNum != -1) {
+
+    //     }
         
-        if (currentNode->children[pos] == nullptr) {
-            return -1;
-        }
+    //     if (currentNode->children[pos] == nullptr) {
+    //         return -1;
+    //     }
 
-        currentNode = currentNode->children[pos];
-    }
+    //     currentNode = currentNode->children[pos];
+    // }
 
     // Find the first match using depth first search
-    return dfs(currentNode, currentNode->routerNum);
-}
+    dfs(currentNode, "", matches, networkAddress);
 
-int PrefixMatcher::dfs(Node* startNode, int routerNum) {
-    if (startNode->routerNum != -1)
-        return startNode->routerNum;
+    std::string longestMatch = matches[0];
 
-    int num = -1;
-
-    for (int i = 0; i < 2; i++) {
-        if (startNode->children[i] != nullptr) {
-            num = dfs(startNode->children[i], startNode->children[i]->routerNum);
-
-            if (num != -1)
-                return num;
-        }
+    for (auto t : matches) {
+        if (t.length() > longestMatch.length())
+            longestMatch = t;
     }
 
-    return -1;
+    return routers[longestMatch];
+}
+
+void PrefixMatcher::dfs(Node* startNode, std::string addr, std::vector<std::string> &matches, std::string networkAddress) {
+    if (startNode->routerNum != -1)
+        matches.push_back(addr);
+
+    for (int i = 0; i < 2; i++) {
+        if (startNode->children[i] != nullptr && getNumberFromPos(i) == networkAddress[0]) {
+            dfs(startNode->children[i], addr + getNumberFromPos(i), matches, networkAddress.substr(1, networkAddress.size() - 1));
+        }
+    }
 }
 
 void PrefixMatcher::insert(std::string address, int routerNumber) {
     Node* currentNode = this->root;
 
     for (int i = 0; i < address.length(); i++) {
-        int pos = address[i] == '0' ? 0 : 1; // Gets the position of c in the alphabet (https://www.geeksforgeeks.org/find-letters-position-in-alphabet-using-bit-operation/)
+        int pos = address[i] == '0' ? 0 : 1;
         
         if (currentNode->children[pos] == nullptr) {
             Node* newNode = new Node();
@@ -59,6 +70,8 @@ void PrefixMatcher::insert(std::string address, int routerNumber) {
     }
 
     currentNode->routerNum = routerNumber;
+
+    routers[address] = routerNumber;
 }
 
 char PrefixMatcher::getNumberFromPos(int n) {

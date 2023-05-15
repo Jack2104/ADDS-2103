@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <map>
 
 class PrefixMatcher {
     public:
@@ -17,9 +18,10 @@ class PrefixMatcher {
         };
 
         Node* root;
+        std::map<std::string, int> routers;
 
         char getNumberFromPos(int n);
-        int dfs(Node* startNode, int routerNum);
+        void dfs(Node* startNode, std::string addr, std::vector<std::string> &matches, std::string networkAddress);
 };
 
 #endif
