@@ -12,23 +12,6 @@ int PrefixMatcher::selectRouter(std::string networkAddress) {
     std::string lastMatchedAddress = "";
     std::vector<std::string> matches;
 
-
-    // for (int i = 0; i < networkAddress.length(); i++) {
-    //     int pos = networkAddress[i] == '0' ? 0 : 1;
-
-    //     lastMatchedAddress += getNumberFromPos(pos);
-
-    //     if (currentNode->routerNum != -1) {
-
-    //     }
-        
-    //     if (currentNode->children[pos] == nullptr) {
-    //         return -1;
-    //     }
-
-    //     currentNode = currentNode->children[pos];
-    // }
-
     // Find the first match using depth first search
     dfs(currentNode, "", matches, networkAddress);
 
