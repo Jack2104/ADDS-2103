@@ -9,7 +9,6 @@ PrefixMatcher::PrefixMatcher() {
 
 int PrefixMatcher::selectRouter(std::string networkAddress) {
     Node* currentNode = this->root;
-    std::string lastMatchedAddress = "";
     std::vector<std::string> matches;
 
     // Find the first match using depth first search
