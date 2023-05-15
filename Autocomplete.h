@@ -6,16 +6,20 @@
 
 class Autocomplete {
     public:
+        Autocomplete();
         std::vector<std::string> getSuggestions(std::string partialWord);
         void insert(std::string word);
     
     private:
         struct Node {
             std::vector<Node*> children;
-            bool endOfWord;
+            bool endOfWord = false;
         };
 
-        std::vector<Node*> children;
+        Node* root;
+
+        char getLetterFromPos(int n);
+        void dfs(Node* startNode, std::string prefix, std::vector<std::string>& words);
 };
 
 #endif
