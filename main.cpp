@@ -19,13 +19,13 @@ int main() {
     // }
 
     PrefixMatcher pm;
-    // pm.insert("1100110111", 1);
-    // pm.insert("110011011", 2);
-    // pm.insert("11001101", 3);
-    // pm.insert("110011010", 4);
-    // pm.insert("10001101001", 5);
-    // pm.insert("01001101001", 6);
-    // cout << pm.selectRouter("11001101110") << endl;
+    pm.insert("1100110111", 1);
+    pm.insert("110011011", 2);
+    pm.insert("11001101", 3);
+    pm.insert("110011010", 4);
+    pm.insert("10001101001", 5);
+    pm.insert("01001101001", 6);
+    cout << pm.selectRouter("11001101110") << endl;
 
     pm.insert("001", 1);
     pm.insert("0011", 2);
