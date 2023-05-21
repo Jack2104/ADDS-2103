@@ -58,24 +58,12 @@ Heap<T>::Heap(std::vector<T> start_values) {
 template <typename T>
 void Heap<T>::insert(T value) {
   values.push_back(value);
-  // for (auto i : values) {
-  //   std::cout << i << " ";
-  // }
-  // std::cout << std::endl;
-
-
   T parent_index = floor((values.size() - 2) / 2);
 
   while (parent_index >= 0) {
     heapify(parent_index);
     parent_index--;
   }
-
-
-  // for (auto i : values) {
-  //   std::cout << i << " ";
-  // }
-  // std::cout << std::endl;
 }
 
 /*******************************/
