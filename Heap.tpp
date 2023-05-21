@@ -3,7 +3,6 @@
 
 #include <vector>
 #include <cmath> // for floor()
-#include <iostream>
 
 template <typename T>
 class Heap {
@@ -84,22 +83,11 @@ void Heap<T>::remove(T value) {
   // value not in heap
   if (index_of_value < 0)
     return;
-  
-  // for (auto i : values) {
-  //   std::cout << i << " ";
-  // }
-  // std::cout << std::endl;
-
 
   // swap the value to be deleted and the last 'node'
   values[index_of_value] = values[values.size() - 1];
   values[values.size() - 1] = value;
   values.pop_back(); // not really needed but done anyway
-
-  // for (auto i : values) {
-  //   std::cout << i << " ";
-  // }
-  // std::cout << std::endl;
 
   // re-heapify
   T swapped_index = index_of_value;
@@ -108,11 +96,6 @@ void Heap<T>::remove(T value) {
     heapify(swapped_index);
     swapped_index--;
   }
-
-  // for (auto i : values) {
-  //   std::cout << i << " ";
-  // }
-  // std::cout << std::endl;
 }
 
 /*******************************/
