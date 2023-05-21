@@ -56,7 +56,7 @@ Heap<T>::Heap(std::vector<T> start_values) {
 
 template <typename T>
 void Heap<T>::insert(T value) {
-   // TO BE IMPLEMENTED
+  heapify(0);
 }
 
 /*******************************/
