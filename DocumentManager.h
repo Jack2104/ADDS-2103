@@ -3,7 +3,12 @@
 
 #include <string>
 
+#include "Trie.h"
+
 class DocumentManager {
+    private:
+        Trie documentNames;
+
     public:
         void addDocument(std::string name, int id, int license_limit);
 

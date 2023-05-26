@@ -11,7 +11,7 @@ void DocumentManager::addPatron(int patronID) {
 }
 
 int DocumentManager::search(string name) {
-    return 0;
+    return documentNames.getDocID(name);
 }
 
 bool DocumentManager::borrowDocument(int docid, int patronID) {
