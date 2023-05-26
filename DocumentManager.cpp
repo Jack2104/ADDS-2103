@@ -1,5 +1,7 @@
 #include "DocumentManager.h"
 
+using namespace std;
+
 void DocumentManager::addDocument(string name, int id, int license_limit) {
 
 }
