@@ -2,11 +2,18 @@
 #define DOCUMENT_MANAGER_H
 
 #include <string>
+#include <vector>
+#include <unordered_map>
+#include <set>
+#include <iostream>
 
 #include "Trie.h"
 
 class DocumentManager {
     private:
+        std::unordered_map<int, std::vector<int>> docs;
+        std::unordered_map<int, std::multiset<int>> patrons;
+
         Trie documentNames;
 
     public:

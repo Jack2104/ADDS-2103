@@ -4,7 +4,6 @@
 #include <iostream>
 
 int main() {
-    // DocumentManager dm;
     // Trie t;
 
     // t.insert("Test", 1);
@@ -12,5 +11,19 @@ int main() {
     // t.print();
     // std::cout << t.getDocID("Test") << std::endl;
 
+    DocumentManager dm;
+    dm.addDocument("Test", 1, 2);
+    dm.addPatron(1);
+
+    std::cout << dm.search("Test") << std::endl;
+    
+    std::cout << dm.borrowDocument(1, 1) << std::endl;
+    std::cout << dm.borrowDocument(1, 1) << std::endl;
+    std::cout << dm.borrowDocument(1, 1) << std::endl;
+
+    dm.returnDocument(1, 1);
+
+    std::cout << dm.borrowDocument(1, 1) << std::endl;
+    
     return 0;
 }
