@@ -15,8 +15,6 @@ class DocumentManager {
         std::unordered_map<std::string, int> docNames;
         std::unordered_map<int, std::multiset<int>> patrons;
 
-        Trie documentNames;
-
     public:
         void addDocument(std::string name, int id, int license_limit);
 

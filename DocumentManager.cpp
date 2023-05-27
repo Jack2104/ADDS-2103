@@ -6,8 +6,6 @@ void DocumentManager::addDocument(string name, int id, int license_limit) {
     vector<int> v = {0, license_limit};
     docs.insert({id, v});
 
-    // Insert into the trie so it can be searched for by name
-    // documentNames.insert(name, id);
     docNames.insert({name, id});
 }
 
@@ -21,8 +19,6 @@ int DocumentManager::search(string name) {
     }
 
     return docNames[name];
-
-    // return documentNames.getDocID(name);
 }
 
 bool DocumentManager::borrowDocument(int docid, int patronID) {
