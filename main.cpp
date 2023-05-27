@@ -1,6 +1,4 @@
 #include "DocumentManager.h"
-#include "Trie.h"
-
 #include <iostream>
 
 int main() {
