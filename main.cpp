@@ -12,10 +12,10 @@ int main() {
     // std::cout << t.getDocID("Test") << std::endl;
 
     DocumentManager dm;
-    dm.addDocument("Test", 1, 2);
+    dm.addDocument("Test test", 1, 2);
     dm.addPatron(1);
 
-    std::cout << dm.search("Test") << std::endl;
+    std::cout << dm.search("Test test") << std::endl;
     
     std::cout << dm.borrowDocument(1, 1) << std::endl;
     std::cout << dm.borrowDocument(1, 1) << std::endl;

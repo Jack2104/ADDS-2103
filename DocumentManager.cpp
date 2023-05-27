@@ -7,7 +7,8 @@ void DocumentManager::addDocument(string name, int id, int license_limit) {
     docs.insert({id, v});
 
     // Insert into the trie so it can be searched for by name
-    documentNames.insert(name, id);
+    // documentNames.insert(name, id);
+    docNames.insert({name, id});
 }
 
 void DocumentManager::addPatron(int patronID) {
@@ -15,12 +16,13 @@ void DocumentManager::addPatron(int patronID) {
 }
 
 int DocumentManager::search(string name) {
-    // if (docs.find(name) == docs.end()) {
-    //     return 0;
-    // }
+    if (docNames.find(name) == docNames.end()) {
+        return 0;
+    }
 
-    // return doc = docs[name][0];
-    return documentNames.getDocID(name);
+    return docNames[name];
+
+    // return documentNames.getDocID(name);
 }
 
 bool DocumentManager::borrowDocument(int docid, int patronID) {

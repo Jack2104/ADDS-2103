@@ -12,6 +12,7 @@
 class DocumentManager {
     private:
         std::unordered_map<int, std::vector<int>> docs;
+        std::unordered_map<std::string, int> docNames;
         std::unordered_map<int, std::multiset<int>> patrons;
 
         Trie documentNames;
